@@ -125,6 +125,7 @@ class _$ResultSuccess<T> implements ResultSuccess<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
 
+  @JsonKey(ignore: true)
   @override
   $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith =>
       _$ResultSuccessCopyWithImpl<T, ResultSuccess<T>>(this, _$identity);
@@ -184,6 +185,7 @@ abstract class ResultSuccess<T> implements Result<T> {
   const factory ResultSuccess(T value) = _$ResultSuccess<T>;
 
   T get value;
+  @JsonKey(ignore: true)
   $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith;
 }
 
@@ -239,6 +241,7 @@ class _$ResultFailure<T> implements ResultFailure<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(e);
 
+  @JsonKey(ignore: true)
   @override
   $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith =>
       _$ResultFailureCopyWithImpl<T, ResultFailure<T>>(this, _$identity);
@@ -298,5 +301,6 @@ abstract class ResultFailure<T> implements Result<T> {
   const factory ResultFailure(Exception e) = _$ResultFailure<T>;
 
   Exception get e;
+  @JsonKey(ignore: true)
   $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith;
 }

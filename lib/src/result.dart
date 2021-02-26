@@ -4,7 +4,7 @@ part 'result.freezed.dart';
 
 @freezed
 abstract class Result<T> with _$Result<T> {
-  const factory Result.success(T value) = ResultSuccess<T>;
+  const factory Result.success(T value) = ResultSuccess;
 
-  const factory Result.failure(Exception e) = ResultFailure<T>;
+  const factory Result.failure(Exception e) = ResultFailure;
 }

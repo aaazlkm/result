@@ -28,8 +28,8 @@ extension ResultEx<T> on Result<T> {
     );
   }
 
-  void ifFailure(Function(Exception e) body) {
-    maybeWhen<void>(
+  void ifFailure(Function(ResultFailure<T> resultFailure) body) {
+    maybeMap<void>(
       failure: (e) => body(e),
       orElse: () {},
     );

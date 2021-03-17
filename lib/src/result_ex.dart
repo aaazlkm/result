@@ -28,9 +28,9 @@ extension ResultEx<T> on Result<T> {
     );
   }
 
-  void ifFailure(Function(ResultFailure<T> resultFailure) body) {
+  void ifFailure(Function(ResultFailure<Complete> resultFailure) body) {
     maybeMap<void>(
-      failure: (e) => body(e),
+      failure: (failure) => body(ResultFailure(failure.e)),
       orElse: () {},
     );
   }
@@ -44,6 +44,10 @@ extension ResultEx<T> on Result<T> {
         success: (data) => data,
         failure: (e) => throw e,
       );
+
+  void throwIfFailure() {
+    ifFailure((resultFailure) => throw resultFailure.e);
+  }
 }
 
 /// future result extension

@@ -6,7 +6,7 @@ extension LoadResultEx<T> on LoadResult<T> {
 
   bool get isFailure => maybeMap(failure: (_) => true, orElse: () => false);
 
-  bool get isLoading => maybeMap(failure: (_) => true, orElse: () => false);
+  bool get isLoading => maybeMap(loading: (_) => true, orElse: () => false);
 
   void ifSuccess(Function(T data) body) {
     maybeWhen<void>(

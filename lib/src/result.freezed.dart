@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'result.dart';
 
@@ -9,18 +9,19 @@ part of 'result.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ResultTearOff {
   const _$ResultTearOff();
 
-// ignore: unused_element
   ResultSuccess<T> success<T>(T value) {
     return ResultSuccess<T>(
       value,
     );
   }
 
-// ignore: unused_element
   ResultFailure<T> failure<T>(Exception e) {
     return ResultFailure<T>(
       e,
@@ -29,33 +30,36 @@ class _$ResultTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Result = _$ResultTearOff();
 
 /// @nodoc
 mixin _$Result<T> {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T value),
-    @required TResult failure(Exception e),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T value) success,
+    required TResult Function(Exception e) failure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T value),
-    TResult failure(Exception e),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(ResultSuccess<T> value),
-    @required TResult failure(ResultFailure<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(ResultSuccess<T> value) success,
+    required TResult Function(ResultFailure<T> value) failure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(ResultSuccess<T> value),
-    TResult failure(ResultFailure<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ResultSuccess<T> value)? success,
+    TResult Function(ResultFailure<T> value)? failure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -93,17 +97,20 @@ class _$ResultSuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object value = freezed,
+    Object? value = freezed,
   }) {
     return _then(ResultSuccess<T>(
-      value == freezed ? _value.value : value as T,
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
-class _$ResultSuccess<T> implements ResultSuccess<T> {
-  const _$ResultSuccess(this.value) : assert(value != null);
+class _$ResultSuccess<T> extends ResultSuccess<T> {
+  const _$ResultSuccess(this.value) : super._();
 
   @override
   final T value;
@@ -132,23 +139,20 @@ class _$ResultSuccess<T> implements ResultSuccess<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T value),
-    @required TResult failure(Exception e),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T value) success,
+    required TResult Function(Exception e) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return success(value);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T value),
-    TResult failure(Exception e),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(value);
     }
@@ -157,23 +161,20 @@ class _$ResultSuccess<T> implements ResultSuccess<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(ResultSuccess<T> value),
-    @required TResult failure(ResultFailure<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ResultSuccess<T> value) success,
+    required TResult Function(ResultFailure<T> value) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(ResultSuccess<T> value),
-    TResult failure(ResultFailure<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ResultSuccess<T> value)? success,
+    TResult Function(ResultFailure<T> value)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(this);
     }
@@ -181,12 +182,14 @@ class _$ResultSuccess<T> implements ResultSuccess<T> {
   }
 }
 
-abstract class ResultSuccess<T> implements Result<T> {
+abstract class ResultSuccess<T> extends Result<T> {
   const factory ResultSuccess(T value) = _$ResultSuccess<T>;
+  const ResultSuccess._() : super._();
 
-  T get value;
+  T get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith;
+  $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -209,17 +212,20 @@ class _$ResultFailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object e = freezed,
+    Object? e = freezed,
   }) {
     return _then(ResultFailure<T>(
-      e == freezed ? _value.e : e as Exception,
+      e == freezed
+          ? _value.e
+          : e // ignore: cast_nullable_to_non_nullable
+              as Exception,
     ));
   }
 }
 
 /// @nodoc
-class _$ResultFailure<T> implements ResultFailure<T> {
-  const _$ResultFailure(this.e) : assert(e != null);
+class _$ResultFailure<T> extends ResultFailure<T> {
+  const _$ResultFailure(this.e) : super._();
 
   @override
   final Exception e;
@@ -248,23 +254,20 @@ class _$ResultFailure<T> implements ResultFailure<T> {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult success(T value),
-    @required TResult failure(Exception e),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T value) success,
+    required TResult Function(Exception e) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return failure(e);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult success(T value),
-    TResult failure(Exception e),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(e);
     }
@@ -273,23 +276,20 @@ class _$ResultFailure<T> implements ResultFailure<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult success(ResultSuccess<T> value),
-    @required TResult failure(ResultFailure<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ResultSuccess<T> value) success,
+    required TResult Function(ResultFailure<T> value) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return failure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult success(ResultSuccess<T> value),
-    TResult failure(ResultFailure<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ResultSuccess<T> value)? success,
+    TResult Function(ResultFailure<T> value)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(this);
     }
@@ -297,10 +297,12 @@ class _$ResultFailure<T> implements ResultFailure<T> {
   }
 }
 
-abstract class ResultFailure<T> implements Result<T> {
+abstract class ResultFailure<T> extends Result<T> {
   const factory ResultFailure(Exception e) = _$ResultFailure<T>;
+  const ResultFailure._() : super._();
 
-  Exception get e;
+  Exception get e => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith;
+  $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

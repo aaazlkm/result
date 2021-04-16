@@ -5,22 +5,23 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  freezed_annotation: ^0.12.0
-  rxdart: ^0.25.0
+  freezed_annotation: ^0.14.1
+  rxdart: ^0.26.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   dart_lint:
-    path: /Users/futoshi/project/dart_lint
+    git:
+      url: git@github.com:aaazlkm/dart_lint.git
+      ref: v2.0.1
   build_runner: ^1.11.0
-  freezed: ^0.12.7
+  freezed: ^0.14.1+2
 
 flutter:
 

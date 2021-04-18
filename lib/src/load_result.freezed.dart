@@ -107,8 +107,8 @@ class _$LoadResultLoadingCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$LoadResultLoading<T> implements LoadResultLoading<T> {
-  const _$LoadResultLoading();
+class _$LoadResultLoading<T> extends LoadResultLoading<T> {
+  const _$LoadResultLoading() : super._();
 
   @override
   String toString() {
@@ -172,8 +172,9 @@ class _$LoadResultLoading<T> implements LoadResultLoading<T> {
   }
 }
 
-abstract class LoadResultLoading<T> implements LoadResult<T> {
+abstract class LoadResultLoading<T> extends LoadResult<T> {
   const factory LoadResultLoading() = _$LoadResultLoading<T>;
+  const LoadResultLoading._() : super._();
 }
 
 /// @nodoc
@@ -209,8 +210,8 @@ class _$LoadResultSuccessCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$LoadResultSuccess<T> implements LoadResultSuccess<T> {
-  const _$LoadResultSuccess(this.value);
+class _$LoadResultSuccess<T> extends LoadResultSuccess<T> {
+  const _$LoadResultSuccess(this.value) : super._();
 
   @override
   final T value;
@@ -287,8 +288,9 @@ class _$LoadResultSuccess<T> implements LoadResultSuccess<T> {
   }
 }
 
-abstract class LoadResultSuccess<T> implements LoadResult<T> {
+abstract class LoadResultSuccess<T> extends LoadResult<T> {
   const factory LoadResultSuccess(T value) = _$LoadResultSuccess<T>;
+  const LoadResultSuccess._() : super._();
 
   T get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -329,8 +331,8 @@ class _$LoadResultFailureCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$LoadResultFailure<T> implements LoadResultFailure<T> {
-  const _$LoadResultFailure(this.e);
+class _$LoadResultFailure<T> extends LoadResultFailure<T> {
+  const _$LoadResultFailure(this.e) : super._();
 
   @override
   final Exception e;
@@ -407,8 +409,9 @@ class _$LoadResultFailure<T> implements LoadResultFailure<T> {
   }
 }
 
-abstract class LoadResultFailure<T> implements LoadResult<T> {
+abstract class LoadResultFailure<T> extends LoadResult<T> {
   const factory LoadResultFailure(Exception e) = _$LoadResultFailure<T>;
+  const LoadResultFailure._() : super._();
 
   Exception get e => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

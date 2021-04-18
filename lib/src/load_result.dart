@@ -4,10 +4,11 @@ import 'package:result/src/complete.dart';
 part 'load_result.freezed.dart';
 
 @freezed
-class LoadResult<T> with _$LoadResult<T> {
+class LoadResult<T> with _$LoadResult<T>, LoadResultUtil<T> {
   const factory LoadResult.loading() = LoadResultLoading;
   const factory LoadResult.success(T value) = LoadResultSuccess;
   const factory LoadResult.failure(Exception e) = LoadResultFailure;
+  const LoadResult._();
 }
 
 mixin LoadResultUtil<T> on _$LoadResult<T> {

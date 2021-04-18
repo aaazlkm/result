@@ -9,7 +9,7 @@ class Result<T> with _$Result<T>, ResultUtil<T> {
 
   const factory Result.failure(Exception e) = ResultFailure;
 
-  Result._();
+  const Result._();
 }
 
 mixin ResultUtil<T> on _$Result<T> {

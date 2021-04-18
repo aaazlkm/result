@@ -1,4 +1,4 @@
-import 'package:result/src/srcs.dart';
+import 'package:result/result.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// future result extension

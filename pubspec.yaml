@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^0.14.1
-  rxdart: ^0.26.0
+  rxdart: ^0.27.0
 
 dev_dependencies:
   flutter_test:

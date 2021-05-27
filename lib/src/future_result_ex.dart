@@ -21,7 +21,7 @@ extension FutureResultEx<T> on Future<Result<T>> {
         ),
       )
       .onErrorReturnWith(
-        (error) => (error is Exception) ? LoadResult.failure(error) : LoadResult.failure(Exception(error)),
+        (error, stackTrace) => (error is Exception) ? LoadResult.failure(error) : LoadResult.failure(Exception(error)),
       )
       .startWith(
         const LoadResult.loading(),

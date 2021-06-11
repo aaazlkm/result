@@ -30,16 +30,7 @@ extension FutureResultEx<T> on Future<Result<T>> {
 
 /// future extension
 extension ConvertFutureToResultEx<T> on Future<T> {
-  Future<Result<T>> toResult() => Future(
-        () async {
-          try {
-            final value = await this;
-            return Result.success(value);
-          } on Exception catch (e) {
-            return Result.failure(e);
-          }
-        },
-      );
+  Future<Result<T>> toResult() => Result.wrapFuture(this);
 
   Future<Result<Complete>> toComplete() => Future(
         () async {

@@ -10,6 +10,24 @@ class Result<T> with _$Result<T>, ResultUtil<T> {
   const factory Result.failure(Exception e) = ResultFailure;
 
   const Result._();
+
+  static Result<T> wrap<T>(T Function() computation) {
+    try {
+      final value = computation();
+      return Result<T>.success(value);
+    } on Exception catch (e) {
+      return Result<T>.failure(e);
+    }
+  }
+
+  static Future<Result<T>> wrapFuture<T>(Future<T> computation) async {
+    try {
+      final value = await computation;
+      return Result<T>.success(value);
+    } on Exception catch (e) {
+      return Result<T>.failure(e);
+    }
+  }
 }
 
 mixin ResultUtil<T> on _$Result<T> {

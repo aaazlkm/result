@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'result.dart';
 
@@ -41,6 +42,12 @@ mixin _$Result<T> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T value)? success,
     TResult Function(Exception e)? failure,
@@ -51,6 +58,12 @@ mixin _$Result<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(ResultSuccess<T> value) success,
     required TResult Function(ResultFailure<T> value) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ResultSuccess<T> value)? success,
+    TResult Function(ResultFailure<T> value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,6 +122,7 @@ class _$ResultSuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$ResultSuccess<T> extends ResultSuccess<T> {
   const _$ResultSuccess(this.value) : super._();
 
@@ -123,14 +137,14 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ResultSuccess<T> &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is ResultSuccess<T> &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -144,6 +158,15 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
     required TResult Function(Exception e) failure,
   }) {
     return success(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) {
+    return success?.call(value);
   }
 
   @override
@@ -170,6 +193,15 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ResultSuccess<T> value)? success,
+    TResult Function(ResultFailure<T> value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ResultSuccess<T> value)? success,
     TResult Function(ResultFailure<T> value)? failure,
@@ -186,7 +218,7 @@ abstract class ResultSuccess<T> extends Result<T> {
   const factory ResultSuccess(T value) = _$ResultSuccess<T>;
   const ResultSuccess._() : super._();
 
-  T get value => throw _privateConstructorUsedError;
+  T get value;
   @JsonKey(ignore: true)
   $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -224,6 +256,7 @@ class _$ResultFailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$ResultFailure<T> extends ResultFailure<T> {
   const _$ResultFailure(this.e) : super._();
 
@@ -238,14 +271,14 @@ class _$ResultFailure<T> extends ResultFailure<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ResultFailure<T> &&
-            (identical(other.e, e) ||
-                const DeepCollectionEquality().equals(other.e, e)));
+        (other.runtimeType == runtimeType &&
+            other is ResultFailure<T> &&
+            const DeepCollectionEquality().equals(other.e, e));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(e);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(e));
 
   @JsonKey(ignore: true)
   @override
@@ -259,6 +292,15 @@ class _$ResultFailure<T> extends ResultFailure<T> {
     required TResult Function(Exception e) failure,
   }) {
     return failure(e);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) {
+    return failure?.call(e);
   }
 
   @override
@@ -285,6 +327,15 @@ class _$ResultFailure<T> extends ResultFailure<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(ResultSuccess<T> value)? success,
+    TResult Function(ResultFailure<T> value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ResultSuccess<T> value)? success,
     TResult Function(ResultFailure<T> value)? failure,
@@ -301,7 +352,7 @@ abstract class ResultFailure<T> extends Result<T> {
   const factory ResultFailure(Exception e) = _$ResultFailure<T>;
   const ResultFailure._() : super._();
 
-  Exception get e => throw _privateConstructorUsedError;
+  Exception get e;
   @JsonKey(ignore: true)
   $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;

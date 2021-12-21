@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'load_result.dart';
 
@@ -46,6 +47,13 @@ mixin _$LoadResult<T> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(T value)? success,
@@ -58,6 +66,13 @@ mixin _$LoadResult<T> {
     required TResult Function(LoadResultLoading<T> value) loading,
     required TResult Function(LoadResultSuccess<T> value) success,
     required TResult Function(LoadResultFailure<T> value) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoadResultLoading<T> value)? loading,
+    TResult Function(LoadResultSuccess<T> value)? success,
+    TResult Function(LoadResultFailure<T> value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +122,7 @@ class _$LoadResultLoadingCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$LoadResultLoading<T> extends LoadResultLoading<T> {
   const _$LoadResultLoading() : super._();
 
@@ -117,7 +133,8 @@ class _$LoadResultLoading<T> extends LoadResultLoading<T> {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is LoadResultLoading<T>);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadResultLoading<T>);
   }
 
   @override
@@ -131,6 +148,16 @@ class _$LoadResultLoading<T> extends LoadResultLoading<T> {
     required TResult Function(Exception e) failure,
   }) {
     return loading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) {
+    return loading?.call();
   }
 
   @override
@@ -155,6 +182,16 @@ class _$LoadResultLoading<T> extends LoadResultLoading<T> {
     required TResult Function(LoadResultFailure<T> value) failure,
   }) {
     return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoadResultLoading<T> value)? loading,
+    TResult Function(LoadResultSuccess<T> value)? success,
+    TResult Function(LoadResultFailure<T> value)? failure,
+  }) {
+    return loading?.call(this);
   }
 
   @override
@@ -210,6 +247,7 @@ class _$LoadResultSuccessCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$LoadResultSuccess<T> extends LoadResultSuccess<T> {
   const _$LoadResultSuccess(this.value) : super._();
 
@@ -224,14 +262,14 @@ class _$LoadResultSuccess<T> extends LoadResultSuccess<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadResultSuccess<T> &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is LoadResultSuccess<T> &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -247,6 +285,16 @@ class _$LoadResultSuccess<T> extends LoadResultSuccess<T> {
     required TResult Function(Exception e) failure,
   }) {
     return success(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) {
+    return success?.call(value);
   }
 
   @override
@@ -275,6 +323,16 @@ class _$LoadResultSuccess<T> extends LoadResultSuccess<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoadResultLoading<T> value)? loading,
+    TResult Function(LoadResultSuccess<T> value)? success,
+    TResult Function(LoadResultFailure<T> value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadResultLoading<T> value)? loading,
     TResult Function(LoadResultSuccess<T> value)? success,
@@ -292,7 +350,7 @@ abstract class LoadResultSuccess<T> extends LoadResult<T> {
   const factory LoadResultSuccess(T value) = _$LoadResultSuccess<T>;
   const LoadResultSuccess._() : super._();
 
-  T get value => throw _privateConstructorUsedError;
+  T get value;
   @JsonKey(ignore: true)
   $LoadResultSuccessCopyWith<T, LoadResultSuccess<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -331,6 +389,7 @@ class _$LoadResultFailureCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
+
 class _$LoadResultFailure<T> extends LoadResultFailure<T> {
   const _$LoadResultFailure(this.e) : super._();
 
@@ -345,14 +404,14 @@ class _$LoadResultFailure<T> extends LoadResultFailure<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadResultFailure<T> &&
-            (identical(other.e, e) ||
-                const DeepCollectionEquality().equals(other.e, e)));
+        (other.runtimeType == runtimeType &&
+            other is LoadResultFailure<T> &&
+            const DeepCollectionEquality().equals(other.e, e));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(e);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(e));
 
   @JsonKey(ignore: true)
   @override
@@ -368,6 +427,16 @@ class _$LoadResultFailure<T> extends LoadResultFailure<T> {
     required TResult Function(Exception e) failure,
   }) {
     return failure(e);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+  }) {
+    return failure?.call(e);
   }
 
   @override
@@ -396,6 +465,16 @@ class _$LoadResultFailure<T> extends LoadResultFailure<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(LoadResultLoading<T> value)? loading,
+    TResult Function(LoadResultSuccess<T> value)? success,
+    TResult Function(LoadResultFailure<T> value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(LoadResultLoading<T> value)? loading,
     TResult Function(LoadResultSuccess<T> value)? success,
@@ -413,7 +492,7 @@ abstract class LoadResultFailure<T> extends LoadResult<T> {
   const factory LoadResultFailure(Exception e) = _$LoadResultFailure<T>;
   const LoadResultFailure._() : super._();
 
-  Exception get e => throw _privateConstructorUsedError;
+  Exception get e;
   @JsonKey(ignore: true)
   $LoadResultFailureCopyWith<T, LoadResultFailure<T>> get copyWith =>
       throw _privateConstructorUsedError;

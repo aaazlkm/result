@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'result.dart';
 
@@ -10,27 +12,7 @@ part of 'result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResultTearOff {
-  const _$ResultTearOff();
-
-  ResultSuccess<T> success<T>(T value) {
-    return ResultSuccess<T>(
-      value,
-    );
-  }
-
-  ResultFailure<T> failure<T>(Exception e) {
-    return ResultFailure<T>(
-      e,
-    );
-  }
-}
-
-/// @nodoc
-const $Result = _$ResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Result<T> {
@@ -38,6 +20,12 @@ mixin _$Result<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T value) success,
     required TResult Function(Exception e) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T value)? success,
+    TResult? Function(Exception e)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +42,12 @@ mixin _$Result<T> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ResultSuccess<T> value)? success,
+    TResult? Function(ResultFailure<T> value)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ResultSuccess<T> value)? success,
     TResult Function(ResultFailure<T> value)? failure,
@@ -65,42 +59,44 @@ mixin _$Result<T> {
 /// @nodoc
 abstract class $ResultCopyWith<T, $Res> {
   factory $ResultCopyWith(Result<T> value, $Res Function(Result<T>) then) =
-      _$ResultCopyWithImpl<T, $Res>;
+      _$ResultCopyWithImpl<T, $Res, Result<T>>;
 }
 
 /// @nodoc
-class _$ResultCopyWithImpl<T, $Res> implements $ResultCopyWith<T, $Res> {
+class _$ResultCopyWithImpl<T, $Res, $Val extends Result<T>>
+    implements $ResultCopyWith<T, $Res> {
   _$ResultCopyWithImpl(this._value, this._then);
 
-  final Result<T> _value;
   // ignore: unused_field
-  final $Res Function(Result<T>) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class $ResultSuccessCopyWith<T, $Res> {
-  factory $ResultSuccessCopyWith(
-          ResultSuccess<T> value, $Res Function(ResultSuccess<T>) then) =
-      _$ResultSuccessCopyWithImpl<T, $Res>;
+abstract class _$$ResultSuccessImplCopyWith<T, $Res> {
+  factory _$$ResultSuccessImplCopyWith(_$ResultSuccessImpl<T> value,
+          $Res Function(_$ResultSuccessImpl<T>) then) =
+      __$$ResultSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({T value});
 }
 
 /// @nodoc
-class _$ResultSuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
-    implements $ResultSuccessCopyWith<T, $Res> {
-  _$ResultSuccessCopyWithImpl(
-      ResultSuccess<T> _value, $Res Function(ResultSuccess<T>) _then)
-      : super(_value, (v) => _then(v as ResultSuccess<T>));
+class __$$ResultSuccessImplCopyWithImpl<T, $Res>
+    extends _$ResultCopyWithImpl<T, $Res, _$ResultSuccessImpl<T>>
+    implements _$$ResultSuccessImplCopyWith<T, $Res> {
+  __$$ResultSuccessImplCopyWithImpl(_$ResultSuccessImpl<T> _value,
+      $Res Function(_$ResultSuccessImpl<T>) _then)
+      : super(_value, _then);
 
-  @override
-  ResultSuccess<T> get _value => super._value as ResultSuccess<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(ResultSuccess<T>(
-      value == freezed
+    return _then(_$ResultSuccessImpl<T>(
+      freezed == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as T,
@@ -109,8 +105,9 @@ class _$ResultSuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$ResultSuccess<T> extends ResultSuccess<T> {
-  const _$ResultSuccess(this.value) : super._();
+
+class _$ResultSuccessImpl<T> extends ResultSuccess<T> {
+  const _$ResultSuccessImpl(this.value) : super._();
 
   @override
   final T value;
@@ -123,19 +120,21 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ResultSuccess<T> &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _$ResultSuccessImpl<T> &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith =>
-      _$ResultSuccessCopyWithImpl<T, ResultSuccess<T>>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ResultSuccessImplCopyWith<T, _$ResultSuccessImpl<T>> get copyWith =>
+      __$$ResultSuccessImplCopyWithImpl<T, _$ResultSuccessImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -144,6 +143,15 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
     required TResult Function(Exception e) failure,
   }) {
     return success(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T value)? success,
+    TResult? Function(Exception e)? failure,
+  }) {
+    return success?.call(value);
   }
 
   @override
@@ -170,6 +178,15 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ResultSuccess<T> value)? success,
+    TResult? Function(ResultFailure<T> value)? failure,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ResultSuccess<T> value)? success,
     TResult Function(ResultFailure<T> value)? failure,
@@ -183,39 +200,39 @@ class _$ResultSuccess<T> extends ResultSuccess<T> {
 }
 
 abstract class ResultSuccess<T> extends Result<T> {
-  const factory ResultSuccess(T value) = _$ResultSuccess<T>;
+  const factory ResultSuccess(final T value) = _$ResultSuccessImpl<T>;
   const ResultSuccess._() : super._();
 
-  T get value => throw _privateConstructorUsedError;
+  T get value;
   @JsonKey(ignore: true)
-  $ResultSuccessCopyWith<T, ResultSuccess<T>> get copyWith =>
+  _$$ResultSuccessImplCopyWith<T, _$ResultSuccessImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ResultFailureCopyWith<T, $Res> {
-  factory $ResultFailureCopyWith(
-          ResultFailure<T> value, $Res Function(ResultFailure<T>) then) =
-      _$ResultFailureCopyWithImpl<T, $Res>;
+abstract class _$$ResultFailureImplCopyWith<T, $Res> {
+  factory _$$ResultFailureImplCopyWith(_$ResultFailureImpl<T> value,
+          $Res Function(_$ResultFailureImpl<T>) then) =
+      __$$ResultFailureImplCopyWithImpl<T, $Res>;
+  @useResult
   $Res call({Exception e});
 }
 
 /// @nodoc
-class _$ResultFailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
-    implements $ResultFailureCopyWith<T, $Res> {
-  _$ResultFailureCopyWithImpl(
-      ResultFailure<T> _value, $Res Function(ResultFailure<T>) _then)
-      : super(_value, (v) => _then(v as ResultFailure<T>));
+class __$$ResultFailureImplCopyWithImpl<T, $Res>
+    extends _$ResultCopyWithImpl<T, $Res, _$ResultFailureImpl<T>>
+    implements _$$ResultFailureImplCopyWith<T, $Res> {
+  __$$ResultFailureImplCopyWithImpl(_$ResultFailureImpl<T> _value,
+      $Res Function(_$ResultFailureImpl<T>) _then)
+      : super(_value, _then);
 
-  @override
-  ResultFailure<T> get _value => super._value as ResultFailure<T>;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? e = freezed,
+    Object? e = null,
   }) {
-    return _then(ResultFailure<T>(
-      e == freezed
+    return _then(_$ResultFailureImpl<T>(
+      null == e
           ? _value.e
           : e // ignore: cast_nullable_to_non_nullable
               as Exception,
@@ -224,8 +241,9 @@ class _$ResultFailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$ResultFailure<T> extends ResultFailure<T> {
-  const _$ResultFailure(this.e) : super._();
+
+class _$ResultFailureImpl<T> extends ResultFailure<T> {
+  const _$ResultFailureImpl(this.e) : super._();
 
   @override
   final Exception e;
@@ -238,19 +256,20 @@ class _$ResultFailure<T> extends ResultFailure<T> {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ResultFailure<T> &&
-            (identical(other.e, e) ||
-                const DeepCollectionEquality().equals(other.e, e)));
+        (other.runtimeType == runtimeType &&
+            other is _$ResultFailureImpl<T> &&
+            (identical(other.e, e) || other.e == e));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(e);
+  int get hashCode => Object.hash(runtimeType, e);
 
   @JsonKey(ignore: true)
   @override
-  $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith =>
-      _$ResultFailureCopyWithImpl<T, ResultFailure<T>>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ResultFailureImplCopyWith<T, _$ResultFailureImpl<T>> get copyWith =>
+      __$$ResultFailureImplCopyWithImpl<T, _$ResultFailureImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -259,6 +278,15 @@ class _$ResultFailure<T> extends ResultFailure<T> {
     required TResult Function(Exception e) failure,
   }) {
     return failure(e);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T value)? success,
+    TResult? Function(Exception e)? failure,
+  }) {
+    return failure?.call(e);
   }
 
   @override
@@ -285,6 +313,15 @@ class _$ResultFailure<T> extends ResultFailure<T> {
 
   @override
   @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ResultSuccess<T> value)? success,
+    TResult? Function(ResultFailure<T> value)? failure,
+  }) {
+    return failure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ResultSuccess<T> value)? success,
     TResult Function(ResultFailure<T> value)? failure,
@@ -298,11 +335,11 @@ class _$ResultFailure<T> extends ResultFailure<T> {
 }
 
 abstract class ResultFailure<T> extends Result<T> {
-  const factory ResultFailure(Exception e) = _$ResultFailure<T>;
+  const factory ResultFailure(final Exception e) = _$ResultFailureImpl<T>;
   const ResultFailure._() : super._();
 
-  Exception get e => throw _privateConstructorUsedError;
+  Exception get e;
   @JsonKey(ignore: true)
-  $ResultFailureCopyWith<T, ResultFailure<T>> get copyWith =>
+  _$$ResultFailureImplCopyWith<T, _$ResultFailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,4 @@
+/// resultライブラリ
 library result;
 
 export 'src/complete.dart';

@@ -5,9 +5,13 @@ part 'load_result.freezed.dart';
 
 @freezed
 class LoadResult<T> with _$LoadResult<T>, LoadResultUtil<T> {
+  /// ローディング
   const factory LoadResult.loading() = LoadResultLoading;
+  /// 成功
   const factory LoadResult.success(T value) = LoadResultSuccess;
+  /// 失敗
   const factory LoadResult.failure(Exception e) = LoadResultFailure;
+
   const LoadResult._();
 }
 
@@ -18,14 +22,14 @@ mixin LoadResultUtil<T> on _$LoadResult<T> {
 
   bool get isLoading => maybeMap(loading: (_) => true, orElse: () => false);
 
-  void ifSuccess(Function(T data) body) {
+  void ifSuccess(void Function(T data) body) {
     maybeWhen<void>(
       success: (data) => body(data),
       orElse: () {},
     );
   }
 
-  void ifFailure(Function(LoadResultFailure<Complete> resultFailure) body) {
+  void ifFailure(void Function(LoadResultFailure<Complete> resultFailure) body) {
     maybeMap<void>(
       failure: (failure) => body(LoadResultFailure(failure.e)),
       orElse: () {},

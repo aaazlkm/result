@@ -5,8 +5,10 @@ part 'result.freezed.dart';
 
 @freezed
 class Result<T> with _$Result<T>, ResultUtil<T> {
+  /// 成功
   const factory Result.success(T value) = ResultSuccess;
 
+  /// 失敗
   const factory Result.failure(Exception e) = ResultFailure;
 
   const Result._();
@@ -49,14 +51,14 @@ mixin ResultUtil<T> on _$Result<T> {
         failure: (result) => Result.failure(result.e),
       );
 
-  void ifSuccess(Function(T data) body) {
+  void ifSuccess(void Function(T data) body) {
     maybeWhen<void>(
       success: (data) => body(data),
       orElse: () {},
     );
   }
 
-  void ifFailure(Function(ResultFailure<Complete> resultFailure) body) {
+  void ifFailure(void Function(ResultFailure<Complete> resultFailure) body) {
     maybeMap<void>(
       failure: (failure) => body(ResultFailure(failure.e)),
       orElse: () {},

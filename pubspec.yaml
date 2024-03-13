@@ -3,7 +3,7 @@ description: Resultライブラリ
 version: 0.0.1
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
@@ -18,7 +18,7 @@ dev_dependencies:
     git:
       url: git@github.com:aaazlkm/dart_lint.git
       ref: v2.0.3
-  build_runner: ^2.4.7
-  freezed: ^2.4.5
+  build_runner: ^2.4.8
+  freezed: ^2.4.7
 
 flutter:

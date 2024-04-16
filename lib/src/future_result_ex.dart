@@ -3,16 +3,19 @@ import 'package:rxdart/rxdart.dart';
 
 /// future result extension
 extension FutureResultEx<T> on Future<Result<T>> {
+  /// データ取得。データがない場合はnullを返す
   Future<T?> get dataOrNull async {
     final value = await this;
     return value.dataOrNull;
   }
 
+  /// データ取得。データがない場合は例外を投げる
   Future<T> get dataOrThrow async {
     final value = await this;
     return value.dataOrThrow;
   }
 
+  /// Future<Result>をLoadResultに変換する
   Stream<LoadResult<T>> withLoad() => asStream()
       .map<LoadResult<T>>(
         (value) => value.map(
@@ -30,8 +33,10 @@ extension FutureResultEx<T> on Future<Result<T>> {
 
 /// future extension
 extension ConvertFutureToResultEx<T> on Future<T> {
+  /// FutureをResultに変換する
   Future<Result<T>> toResult() => Result.wrapFuture(this);
 
+  /// FutureをResultに変換し、Completeに変換する
   Future<Result<Complete>> toComplete() => Future(
         () async {
           try {

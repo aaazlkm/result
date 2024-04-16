@@ -12,12 +12,13 @@ part of 'load_result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoadResult<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T value) success,
     required TResult Function(Exception e) failure,
@@ -25,6 +26,7 @@ mixin _$LoadResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T value)? success,
     TResult? Function(Exception e)? failure,
@@ -32,6 +34,7 @@ mixin _$LoadResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T value)? success,
     TResult Function(Exception e)? failure,
@@ -40,6 +43,7 @@ mixin _$LoadResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LoadResultInitial<T> value) initial,
     required TResult Function(LoadResultLoading<T> value) loading,
     required TResult Function(LoadResultSuccess<T> value) success,
     required TResult Function(LoadResultFailure<T> value) failure,
@@ -47,6 +51,7 @@ mixin _$LoadResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadResultInitial<T> value)? initial,
     TResult? Function(LoadResultLoading<T> value)? loading,
     TResult? Function(LoadResultSuccess<T> value)? success,
     TResult? Function(LoadResultFailure<T> value)? failure,
@@ -54,6 +59,7 @@ mixin _$LoadResult<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadResultInitial<T> value)? initial,
     TResult Function(LoadResultLoading<T> value)? loading,
     TResult Function(LoadResultSuccess<T> value)? success,
     TResult Function(LoadResultFailure<T> value)? failure,
@@ -78,6 +84,122 @@ class _$LoadResultCopyWithImpl<T, $Res, $Val extends LoadResult<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$LoadResultInitialImplCopyWith<T, $Res> {
+  factory _$$LoadResultInitialImplCopyWith(_$LoadResultInitialImpl<T> value,
+          $Res Function(_$LoadResultInitialImpl<T>) then) =
+      __$$LoadResultInitialImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$LoadResultInitialImplCopyWithImpl<T, $Res>
+    extends _$LoadResultCopyWithImpl<T, $Res, _$LoadResultInitialImpl<T>>
+    implements _$$LoadResultInitialImplCopyWith<T, $Res> {
+  __$$LoadResultInitialImplCopyWithImpl(_$LoadResultInitialImpl<T> _value,
+      $Res Function(_$LoadResultInitialImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$LoadResultInitialImpl<T> extends LoadResultInitial<T> {
+  const _$LoadResultInitialImpl() : super._();
+
+  @override
+  String toString() {
+    return 'LoadResult<$T>.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadResultInitialImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T value) success,
+    required TResult Function(Exception e) failure,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T value)? success,
+    TResult? Function(Exception e)? failure,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T value)? success,
+    TResult Function(Exception e)? failure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadResultInitial<T> value) initial,
+    required TResult Function(LoadResultLoading<T> value) loading,
+    required TResult Function(LoadResultSuccess<T> value) success,
+    required TResult Function(LoadResultFailure<T> value) failure,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadResultInitial<T> value)? initial,
+    TResult? Function(LoadResultLoading<T> value)? loading,
+    TResult? Function(LoadResultSuccess<T> value)? success,
+    TResult? Function(LoadResultFailure<T> value)? failure,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadResultInitial<T> value)? initial,
+    TResult Function(LoadResultLoading<T> value)? loading,
+    TResult Function(LoadResultSuccess<T> value)? success,
+    TResult Function(LoadResultFailure<T> value)? failure,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LoadResultInitial<T> extends LoadResult<T> {
+  const factory LoadResultInitial() = _$LoadResultInitialImpl<T>;
+  const LoadResultInitial._() : super._();
 }
 
 /// @nodoc
@@ -107,7 +229,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadResultLoadingImpl<T>);
@@ -119,6 +241,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T value) success,
     required TResult Function(Exception e) failure,
@@ -129,6 +252,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T value)? success,
     TResult? Function(Exception e)? failure,
@@ -139,6 +263,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T value)? success,
     TResult Function(Exception e)? failure,
@@ -153,6 +278,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LoadResultInitial<T> value) initial,
     required TResult Function(LoadResultLoading<T> value) loading,
     required TResult Function(LoadResultSuccess<T> value) success,
     required TResult Function(LoadResultFailure<T> value) failure,
@@ -163,6 +289,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadResultInitial<T> value)? initial,
     TResult? Function(LoadResultLoading<T> value)? loading,
     TResult? Function(LoadResultSuccess<T> value)? success,
     TResult? Function(LoadResultFailure<T> value)? failure,
@@ -173,6 +300,7 @@ class _$LoadResultLoadingImpl<T> extends LoadResultLoading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadResultInitial<T> value)? initial,
     TResult Function(LoadResultLoading<T> value)? loading,
     TResult Function(LoadResultSuccess<T> value)? success,
     TResult Function(LoadResultFailure<T> value)? failure,
@@ -235,7 +363,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadResultSuccessImpl<T> &&
@@ -257,6 +385,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T value) success,
     required TResult Function(Exception e) failure,
@@ -267,6 +396,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T value)? success,
     TResult? Function(Exception e)? failure,
@@ -277,6 +407,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T value)? success,
     TResult Function(Exception e)? failure,
@@ -291,6 +422,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LoadResultInitial<T> value) initial,
     required TResult Function(LoadResultLoading<T> value) loading,
     required TResult Function(LoadResultSuccess<T> value) success,
     required TResult Function(LoadResultFailure<T> value) failure,
@@ -301,6 +433,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadResultInitial<T> value)? initial,
     TResult? Function(LoadResultLoading<T> value)? loading,
     TResult? Function(LoadResultSuccess<T> value)? success,
     TResult? Function(LoadResultFailure<T> value)? failure,
@@ -311,6 +444,7 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadResultInitial<T> value)? initial,
     TResult Function(LoadResultLoading<T> value)? loading,
     TResult Function(LoadResultSuccess<T> value)? success,
     TResult Function(LoadResultFailure<T> value)? failure,
@@ -378,7 +512,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadResultFailureImpl<T> &&
@@ -399,6 +533,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T value) success,
     required TResult Function(Exception e) failure,
@@ -409,6 +544,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T value)? success,
     TResult? Function(Exception e)? failure,
@@ -419,6 +555,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T value)? success,
     TResult Function(Exception e)? failure,
@@ -433,6 +570,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(LoadResultInitial<T> value) initial,
     required TResult Function(LoadResultLoading<T> value) loading,
     required TResult Function(LoadResultSuccess<T> value) success,
     required TResult Function(LoadResultFailure<T> value) failure,
@@ -443,6 +581,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(LoadResultInitial<T> value)? initial,
     TResult? Function(LoadResultLoading<T> value)? loading,
     TResult? Function(LoadResultSuccess<T> value)? success,
     TResult? Function(LoadResultFailure<T> value)? failure,
@@ -453,6 +592,7 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadResultInitial<T> value)? initial,
     TResult Function(LoadResultLoading<T> value)? loading,
     TResult Function(LoadResultSuccess<T> value)? success,
     TResult Function(LoadResultFailure<T> value)? failure,

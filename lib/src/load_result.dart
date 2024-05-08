@@ -75,4 +75,12 @@ mixin LoadResultUtil<T> on _$LoadResult<T> {
         failure: (failure) => failure.e,
         orElse: () => null,
       );
+
+  /// success時の値を変換する
+  LoadResult<S> mapValue<S>(S Function(T data) dataMapper) => map(
+    initial: (initial) => LoadResult.initial(),
+    loading: (loading) => const LoadResult.loading(),
+    success: (success) => LoadResult.success(dataMapper(success.value)),
+    failure: (failure) => LoadResult.failure(failure.e),
+  );
 }

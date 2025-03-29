@@ -37,8 +37,8 @@ class $LoadResultCopyWith<T, $Res> {
 
 /// @nodoc
 
-class LoadResultInitial<T> extends LoadResult<T> {
-  const LoadResultInitial() : super._();
+class LoadResultInitial<T> implements LoadResult<T> {
+  const LoadResultInitial();
 
   @override
   bool operator ==(Object other) {
@@ -57,8 +57,8 @@ class LoadResultInitial<T> extends LoadResult<T> {
 
 /// @nodoc
 
-class LoadResultLoading<T> extends LoadResult<T> {
-  const LoadResultLoading() : super._();
+class LoadResultLoading<T> implements LoadResult<T> {
+  const LoadResultLoading();
 
   @override
   bool operator ==(Object other) {
@@ -77,8 +77,8 @@ class LoadResultLoading<T> extends LoadResult<T> {
 
 /// @nodoc
 
-class LoadResultSuccess<T> extends LoadResult<T> {
-  const LoadResultSuccess(this.value) : super._();
+class LoadResultSuccess<T> implements LoadResult<T> {
+  const LoadResultSuccess(this.value);
 
   final T value;
 
@@ -143,8 +143,8 @@ class _$LoadResultSuccessCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class LoadResultFailure<T> extends LoadResult<T> {
-  const LoadResultFailure(this.e) : super._();
+class LoadResultFailure<T> implements LoadResult<T> {
+  const LoadResultFailure(this.e);
 
   final Exception e;
 

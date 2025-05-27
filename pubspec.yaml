@@ -8,7 +8,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  freezed_annotation: ^2.4.1
+  freezed_annotation: ^2.4.4
   rxdart: ^0.28.0
 
 dev_dependencies:
@@ -18,7 +18,25 @@ dev_dependencies:
     git:
       url: git@github.com:aaazlkm/dart_lint.git
       ref: v2.0.3
-  build_runner: ^2.4.9
-  freezed: ^2.4.7
+  build_runner: ^2.4.15
+  freezed: ^2.5.8
 
 flutter:
+
+scripts:
+  # formatする
+  format: .fvm/flutter_sdk/bin/dart fix --apply
+  # analyzeする
+  analyze: fvm flutter analyze . --no-fatal-infos
+  # cache削除
+  clean: fvm flutter clean
+  # test実行
+  test: fvm flutter test
+  # ビルドする
+  buildRunner: fvm flutter pub run build_runner build
+  # キャッシュ削除してビルドする
+  buildRunnerDelete: fvm flutter pub run build_runner build --delete-conflicting-outputs
+  # アセット系生成 プロジェクト初期化時に呼ぶ必要ある
+  assetGen: fluttergen -c pubspec.yaml
+  # indexGeneratorを実行する
+  indexGenerator: dart pub global run index_generator

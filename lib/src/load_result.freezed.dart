@@ -84,6 +84,9 @@ class _$LoadResultCopyWithImpl<T, $Res, $Val extends LoadResult<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$LoadResultInitialImplCopyWithImpl<T, $Res>
   __$$LoadResultInitialImplCopyWithImpl(_$LoadResultInitialImpl<T> _value,
       $Res Function(_$LoadResultInitialImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -216,6 +222,9 @@ class __$$LoadResultLoadingImplCopyWithImpl<T, $Res>
   __$$LoadResultLoadingImplCopyWithImpl(_$LoadResultLoadingImpl<T> _value,
       $Res Function(_$LoadResultLoadingImpl<T>) _then)
       : super(_value, _then);
+
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -335,6 +344,8 @@ class __$$LoadResultSuccessImplCopyWithImpl<T, $Res>
       $Res Function(_$LoadResultSuccessImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -374,7 +385,9 @@ class _$LoadResultSuccessImpl<T> extends LoadResultSuccess<T> {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadResultSuccessImplCopyWith<T, _$LoadResultSuccessImpl<T>>
@@ -462,7 +475,10 @@ abstract class LoadResultSuccess<T> extends LoadResult<T> {
   const LoadResultSuccess._() : super._();
 
   T get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadResultSuccessImplCopyWith<T, _$LoadResultSuccessImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -484,6 +500,8 @@ class __$$LoadResultFailureImplCopyWithImpl<T, $Res>
       $Res Function(_$LoadResultFailureImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -522,7 +540,9 @@ class _$LoadResultFailureImpl<T> extends LoadResultFailure<T> {
   @override
   int get hashCode => Object.hash(runtimeType, e);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadResultFailureImplCopyWith<T, _$LoadResultFailureImpl<T>>
@@ -611,7 +631,10 @@ abstract class LoadResultFailure<T> extends LoadResult<T> {
   const LoadResultFailure._() : super._();
 
   Exception get e;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of LoadResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadResultFailureImplCopyWith<T, _$LoadResultFailureImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

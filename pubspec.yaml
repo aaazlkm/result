@@ -19,31 +19,6 @@ dev_dependencies:
       url: git@github.com:aaazlkm/dart_lint.git
       ref: v2.0.3
   build_runner: ^2.4.15
-  freezed: ^3.0.4
+  freezed: ^3.0.3
 
 flutter:
-
-scripts:
-  # formatする
-  format: .fvm/flutter_sdk/bin/dart fix --apply
-  # cache削除
-  clean: fvm flutter clean
-  # test実行
-  test: fvm flutter test
-  # ビルドする
-  buildRunner: fvm flutter pub run build_runner build
-  # キャッシュ削除してビルドする
-  buildRunnerDelete: fvm flutter pub run build_runner build --delete-conflicting-outputs
-  # indexGeneratorを実行する
-  indexGenerator: dart pub global run index_generator
-
-# simple_app_kit.dartのexport文を自動生成してくれるパッケージ
-# dart pub global run index_generatorで自動生成してくれる
-# https://pub.dev/packages/index_generator
-index_generator:
-  # Define the paths of the folders in which to generate the index files
-  libraries:
-    - directory_path: lib
-  exclude:
-    - "**/*.freezed.dart"
-    - "**/*.g.dart"

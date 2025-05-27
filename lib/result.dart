@@ -1,4 +1,5 @@
-// GENERATED CODE - DO NOT MODIFY BY HAND
+/// resultライブラリ
+library result;
 
 export 'src/complete.dart';
 export 'src/future_result_ex.dart';

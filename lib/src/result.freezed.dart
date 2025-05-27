@@ -37,8 +37,8 @@ class $ResultCopyWith<T, $Res> {
 
 /// @nodoc
 
-class ResultSuccess<T> implements Result<T> {
-  const ResultSuccess(this.value);
+class ResultSuccess<T> extends Result<T> {
+  const ResultSuccess(this.value) : super._();
 
   final T value;
 
@@ -102,8 +102,8 @@ class _$ResultSuccessCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class ResultFailure<T> implements Result<T> {
-  const ResultFailure(this.e);
+class ResultFailure<T> extends Result<T> {
+  const ResultFailure(this.e) : super._();
 
   final Exception e;
 

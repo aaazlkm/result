@@ -4,7 +4,7 @@ import 'package:result/src/complete.dart';
 part 'result.freezed.dart';
 
 @freezed
-class Result<T> with _$Result<T>, ResultUtil<T> {
+sealed class Result<T> with _$Result<T> {
   /// 成功
   const factory Result.success(T value) = ResultSuccess;
 
@@ -32,7 +32,7 @@ class Result<T> with _$Result<T>, ResultUtil<T> {
   }
 }
 
-mixin ResultUtil<T> on _$Result<T> {
+extension ResultUtil<T> on Result<T> {
   static Result<Complete> catchFirstFailure(List<Result<Complete>> results) {
     for (final result in results) {
       if (result is ResultFailure<Complete>) {

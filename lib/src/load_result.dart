@@ -4,7 +4,7 @@ import 'package:result/src/complete.dart';
 part 'load_result.freezed.dart';
 
 @freezed
-class LoadResult<T> with _$LoadResult<T>, LoadResultUtil<T> {
+sealed class LoadResult<T> with _$LoadResult<T> {
   /// 初期状態
   const factory LoadResult.initial() = LoadResultInitial;
 
@@ -21,10 +21,10 @@ class LoadResult<T> with _$LoadResult<T>, LoadResultUtil<T> {
 
   /// 2つのLoadResultを結合する
   static LoadResult<R> combineResult<T1, T2, R>(
-      LoadResult<T1> result1,
-      LoadResult<T2> result2,
-      R Function(T1, T2) combiner,
-      ) {
+    LoadResult<T1> result1,
+    LoadResult<T2> result2,
+    R Function(T1, T2) combiner,
+  ) {
     if (result1.isInitial || result2.isInitial) {
       return const LoadResult.initial();
     }
@@ -43,7 +43,7 @@ class LoadResult<T> with _$LoadResult<T>, LoadResultUtil<T> {
   }
 }
 
-mixin LoadResultUtil<T> on _$LoadResult<T> {
+extension LoadResultUtil<T> on LoadResult<T> {
   bool get isInitial => maybeMap(initial: (_) => true, orElse: () => false);
 
   bool get isSuccess => maybeMap(success: (_) => true, orElse: () => false);
@@ -78,9 +78,9 @@ mixin LoadResultUtil<T> on _$LoadResult<T> {
 
   /// success時の値を変換する
   LoadResult<S> mapValue<S>(S Function(T data) dataMapper) => map(
-    initial: (initial) => LoadResult.initial(),
-    loading: (loading) => const LoadResult.loading(),
-    success: (success) => LoadResult.success(dataMapper(success.value)),
-    failure: (failure) => LoadResult.failure(failure.e),
-  );
+        initial: (initial) => LoadResult.initial(),
+        loading: (loading) => const LoadResult.loading(),
+        success: (success) => LoadResult.success(dataMapper(success.value)),
+        failure: (failure) => LoadResult.failure(failure.e),
+      );
 }
